@@ -1,0 +1,243 @@
+/* Menu hamburguer */
+/* From Uiverse.io by ahmedyasserdev */
+body{
+    width: 100%;
+    overflow-x: hidden;
+}
+
+h2{
+    text-align: center;
+}
+
+header {
+    position: fixed; /* Troque sticky por fixed */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background-color: beige;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    width: 100%;
+    margin: 0;
+}
+
+.nav-left span {
+    display: flex;
+    gap: 5px;
+}
+
+.container-burger {
+    display: flex;
+    justify-content: end;
+}
+
+.burger {
+    display: inline-block;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.burger span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: #333;
+    margin: 6px 0;
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+        opacity 0.3s ease;
+}
+
+#burger-checkbox {
+    display: none;
+}
+
+#burger-checkbox:checked+.burger span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+#burger-checkbox:checked+.burger span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+#burger-checkbox:checked+.burger span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.nav-links{
+    display: none;
+}
+
+
+main{
+    min-height: 100vh;
+    padding-top: 43px;
+
+}
+
+.hero{
+    background-image: url(https://img.magnific.com/fotos-gratis/fundo-abstrato-escuro_1048-1920.jpg?semt=ais_hybrid&w=740&q=80
+    );
+    color: white;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.hero-right{
+    margin: 15px;
+}
+.hero-left img{
+    width: 50px;
+    height: auto;
+}
+
+
+/* -----------------Cards projetos--------- */
+/* From Uiverse.io by Yaya12085 */ 
+.cards-projetos{
+    display: flex;
+}
+.section-projetos h2{
+    text-align: center;
+}
+
+.card {
+  max-width: 300px;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid transparent;
+}
+
+.card a {
+  text-decoration: none
+}
+
+.content {
+  padding: 1.1rem;
+}
+
+.image {
+  object-fit: cover;
+  width: 100%;
+  height: 150px;
+  background-color: rgb(239, 205, 255);
+}
+
+.title {
+  color: #111827;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+.desc {
+  margin-top: 0.5rem;
+  color: #6B7280;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.action {
+  display: inline-flex;
+  margin-top: 1rem;
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: #2563EB;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.action span {
+  transition: .3s ease;
+}
+
+.action:hover span {
+  transform: translateX(4px);
+}
+
+
+.section-sobre-mim{
+
+}
+.section-sobre-mim h2{
+    text-align: center;
+}
+
+
+
+
+
+.section-contato{
+
+}
+
+.section-contato p{
+    text-align: center;
+}
+
+.section-contato form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 15px;
+}
+
+.section-contato input{
+    margin-bottom: 15px;
+    padding: 5px;
+}
+
+.section-contato textarea{
+    padding: 5px;
+}
+
+
+.btn-contato{
+    margin: 0 auto;
+    width: 85%;
+    margin-top: 15px;
+
+    outline: 0;
+    border: 2px solid black;
+    border-radius: 10px;
+
+    color: blue;
+
+}
+
+footer{
+    background-color: #2563EB;
+    min-height: 10vh;
+}
+
+footer p{
+    text-align: center;
+    padding-top: 10px;
+}
+
+@media(max-width: 768px){
+    .container-burger{
+        display: none;
+    }
+    .nav-links{
+        display: block;
+    }
+
+
+
+}
