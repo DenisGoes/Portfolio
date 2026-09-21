@@ -1,216 +1,190 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <link rel="stylesheet" href="src/style/normalize.css">
-    <link rel="stylesheet" href="src/style/style.css">
-</head>
-
-<body>
-
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Denis Goes | Desenvolvedor Backend</title>
+    <link rel="stylesheet" href="src/style/normalize.css" />
+    <link rel="stylesheet" href="src/style/style.css" />
+  </head>
+  <body>
     <header>
-        <nav>
+      <nav>
+        <div class="nav-left">
+          <p>Denis Goes <span class="destaque-logo">/</span></p>
+        </div>
 
-            <div class="nav-left">
-                <span>
-                    <img src="" alt="Logo">
-                    <p>lorem</p>
-                </span>
-            </div>
+        <div class="container-burger">
+          <input id="burger-checkbox" type="checkbox" />
 
-            <div class="container-burger">
+          <label class="burger" for="burger-checkbox">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
 
-                <input id="burger-checkbox" type="checkbox">
-
-                <label class="burger" for="burger-checkbox">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </label>
-
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#projetos">Projetos</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-
-            </div>
-
-        </nav>
+          <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+      </nav>
     </header>
 
     <main>
+      <section class="hero" id="home">
+        <div class="hero-content">
+          <h1>Criando soluções digitais inovadoras para problemas reais.</h1>
+          <p>
+            Construo os motores que fazem a tecnologia funcionar. Crio sistemas
+            completos, escaláveis e seguros com Python e Java para sanar
+            necessidades do mundo real.
+          </p>
+          <button class="btn-hero">Meus Projetos</button>
+        </div>
+      </section>
 
-        <section class="hero">
+      <section class="section-projetos">
+        <h2>Projetos</h2>
 
-            <div class="hero-right">
-                <h1>H1 Lorem</h1>
-                <p>PPPPP Lorem lorem</p>
+        <div class="cards-projetos">
+          <!-- Card 1 -->
+          <div class="card">
+            <img
+              src="https://via.placeholder.com/300x150"
+              alt="Capa do projeto"
+              class="image"
+            />
+
+            <div class="content">
+              <a href="#">
+                <span class="title">Sistema de Gestão Escolar</span>
+              </a>
+              <p class="desc">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Recusandae dolores, possimus pariatur.
+              </p>
+              <a class="action" href="#">
+                Find out more
+                <span aria-hidden="true">→</span>
+              </a>
             </div>
+          </div>
 
-            <div class="hero-left">
-                <img src="https://preview.redd.it/someone-asked-for-some-dark-art-so-here-is-some-of-mine-v0-syw8zzzszkzb1.jpg?width=640&crop=smart&auto=webp&s=a39b74ad9a67664e31ca0ec4a001e893194676d9"
-                    alt="">
+          <!-- Card 2 -->
+          <div class="card">
+            <img
+              src="https://via.placeholder.com/300x150"
+              alt="Capa do projeto"
+              class="image"
+            />
+
+            <div class="content">
+              <a href="#">
+                <span class="title">API RESTful em Java</span>
+              </a>
+              <p class="desc">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Recusandae dolores, possimus pariatur.
+              </p>
+              <a class="action" href="#">
+                Find out more
+                <span aria-hidden="true">→</span>
+              </a>
             </div>
+          </div>
 
-        </section>
+          <!-- Card 3 -->
+          <div class="card">
+            <img
+              src="https://via.placeholder.com/300x150"
+              alt="Capa do projeto"
+              class="image"
+            />
 
-        <section class="section-projetos">
-
-            <h2>Projetos</h2>
-
-            <div class="cards-projetos">
-
-                <div class="card">
-
-                    <div class="image"></div>
-
-                    <div class="content">
-
-                        <a href="#">
-                            <span class="title">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            </span>
-                        </a>
-
-                        <p class="desc">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Recusandae dolores, possimus pariatur animi temporibus nesciunt praesentium
-                        </p>
-
-                        <a class="action" href="#">
-                            Find out more
-                            <span aria-hidden="true">→</span>
-                        </a>
-
-                    </div>
-
-                </div>
-
-                <div class="card">
-
-                    <div class="image"></div>
-
-                    <div class="content">
-
-                        <a href="#">
-                            <span class="title">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            </span>
-                        </a>
-
-                        <p class="desc">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Recusandae dolores, possimus pariatur animi temporibus nesciunt praesentium
-                        </p>
-
-                        <a class="action" href="#">
-                            Find out more
-                            <span aria-hidden="true">→</span>
-                        </a>
-
-                    </div>
-
-                </div>
-
-                <div class="card">
-
-                    <div class="image"></div>
-
-                    <div class="content">
-
-                        <a href="#">
-                            <span class="title">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            </span>
-                        </a>
-
-                        <p class="desc">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Recusandae dolores, possimus pariatur animi temporibus nesciunt praesentium
-                        </p>
-
-                        <a class="action" href="#">
-                            Find out more
-                            <span aria-hidden="true">→</span>
-                        </a>
-
-                    </div>
-
-                </div>
-
-                <div class="card">
-
-                    <div class="image"></div>
-
-                    <div class="content">
-
-                        <a href="#">
-                            <span class="title">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            </span>
-                        </a>
-
-                        <p class="desc">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Recusandae dolores, possimus pariatur animi temporibus nesciunt praesentium
-                        </p>
-
-                        <a class="action" href="#">
-                            Find out more
-                            <span aria-hidden="true">→</span>
-                        </a>
-
-                    </div>
-
-                </div>
-
+            <div class="content">
+              <a href="#">
+                <span class="title">Automação com Python</span>
+              </a>
+              <p class="desc">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Recusandae dolores, possimus pariatur.
+              </p>
+              <a class="action" href="#">
+                Find out more
+                <span aria-hidden="true">→</span>
+              </a>
             </div>
+          </div>
+        </div>
+      </section>
 
-        </section>
+      <section class="section-sobre-mim" id="sobre">
+        <img
+          class="foto-perfil"
+          src="https://via.placeholder.com/150"
+          alt="Foto de Denis Goes"
+        />
 
-        <section class="section-sobre-mim">
+        <h2>Quem sou eu</h2>
+        <p>
+          Sou Denis Goes, um desenvolvedor de 19 anos, aluno SENAI e apaixonado
+          por criar soluções reais. Construo sistemas completos, tenho orgulho
+          de usar a tecnologia para resolver problemas comuns.
+        </p>
 
-            <h2>Sobre mim</h2>
+        <h3>Tecnologias e Ferramentas</h3>
+        <div class="tecnologias-sobre">
+          <img class="tech" src="src/python.svg" alt="Python" />
+          <img class="tech" src="src/java.svg" alt="Java" />
+          <img class="tech" src="src/docker.svg" alt="Docker" />
+          <img class="tech" src="src/git.svg" alt="Git" />
+          <img class="tech" src="src/html.svg" alt="HTML" />
+          <img class="tech" src="src/css.svg" alt="CSS" />
+        </div>
+      </section>
 
-        </section>
+      <section class="section-contato" id="contato">
+        <h2>Contato</h2>
+        <p>Vamos trabalhar juntos? Me mande uma mensagem!</p>
 
-        <section class="section-contato">
+        <form action="">
+          <label for="nome">Nome</label>
+          <input id="nome" type="text" placeholder="Insira seu nome" />
 
-            <h2>Contato</h2>
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="Insira seu email" />
 
-            <p>Lore lorem</p>
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" placeholder="Sua mensagem"></textarea>
 
-            <form action="">
+          <button type="submit" class="btn-contato">Enviar mensagem</button>
 
-                <label for="nome">Nome</label>
-                <input id="nome" type="text" placeholder="Insira seu nome">
-
-                <label for="email">Email</label>
-                <input id="email" type="email" placeholder="Email">
-
-                <textarea placeholder="Sua mensagem"></textarea>
-
-                <button class="btn-contato">
-                    Enviar mensagem
-                </button>
-
-            </form>
-
-        </section>
-
+          <div class="redes-contato">
+            <a href="#" target="_blank">
+              <img
+                class="redes-sociais"
+                src="src/redes-sociais/linkedin.svg"
+                alt="LinkedIn"
+              />
+            </a>
+            <a href="#" target="_blank">
+              <img
+                class="redes-sociais"
+                src="src/redes-sociais/github.svg"
+                alt="GitHub"
+              />
+            </a>
+          </div>
+        </form>
+      </section>
     </main>
 
     <footer>
-        <p>&copy;</p>
+      <p>&copy; 2026 Denis Goes. Todos os direitos reservados.</p>
+      <p>Aluno SENAI - São Paulo, SP.</p>
     </footer>
-
-</body>
-
+  </body>
 </html>
-
