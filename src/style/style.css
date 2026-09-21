@@ -2,14 +2,21 @@
    VARIÁVEIS DE CORES (PALETA)
 ========================================= */
 :root {
-  --bg-principal: #111827;     /* Cinza muito escuro */
-  --bg-secundario: #1f2937;    /* Cinza médio/escuro */
-  --texto-claro: #f3f4f6;      /* Branco suave */
-  --texto-mutado: #9ca3af;     /* Cinza para subtítulos */
-  
-  --azul-tech: #2563eb;        /* Azul vibrante */
-  --azul-hover: #1d4ed8;       /* Azul escuro (clique) */
-  --laranja-destaque: #f97316; /* Laranja energético */
+  --bg-principal: #111827;
+  /* Cinza muito escuro */
+  --bg-secundario: #1f2937;
+  /* Cinza médio/escuro */
+  --texto-claro: #f3f4f6;
+  /* Branco suave */
+  --texto-mutado: #9ca3af;
+  /* Cinza para subtítulos */
+
+  --azul-tech: #2563eb;
+  /* Azul vibrante */
+  --azul-hover: #1d4ed8;
+  /* Azul escuro (clique) */
+  --laranja-destaque: #f97316;
+  /* Laranja energético */
 }
 
 
@@ -35,7 +42,8 @@ header {
   left: 0;
   width: 100%;
   background-color: var(--bg-principal);
-  border-bottom: 2px solid var(--azul-tech); /* Linha azul de destaque */
+  border-bottom: 2px solid var(--azul-tech);
+  /* Linha azul de destaque */
   z-index: 1000;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
@@ -54,7 +62,8 @@ nav {
 }
 
 .destaque-logo {
-  color: var(--laranja-destaque); /* Barra '/' laranja */
+  color: var(--laranja-destaque);
+  /* Barra '/' laranja */
 }
 
 /* Menu Hambúrguer */
@@ -73,7 +82,7 @@ nav {
   display: block;
   width: 30px;
   height: 3px;
-  background: var(--texto-claro); 
+  background: var(--texto-claro);
   margin: 6px 0;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -82,13 +91,15 @@ nav {
   display: none;
 }
 
-#burger-checkbox:checked + .burger span:nth-child(1) {
+#burger-checkbox:checked+.burger span:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
 }
-#burger-checkbox:checked + .burger span:nth-child(2) {
+
+#burger-checkbox:checked+.burger span:nth-child(2) {
   opacity: 0;
 }
-#burger-checkbox:checked + .burger span:nth-child(3) {
+
+#burger-checkbox:checked+.burger span:nth-child(3) {
   transform: translateY(-9px) rotate(-45deg);
 }
 
@@ -101,11 +112,11 @@ nav {
   width: 100%;
   background-color: var(--bg-secundario);
   flex-direction: column;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .nav-links li {
-  list-style: none;
+  /* list-style: none; */
   text-align: center;
   border-top: 1px solid #374151;
 }
@@ -119,7 +130,7 @@ nav {
 }
 
 /* Abre o menu quando o checkbox é marcado */
-#burger-checkbox:checked ~ .nav-links {
+#burger-checkbox:checked~.nav-links {
   display: flex;
 }
 
@@ -127,11 +138,11 @@ nav {
    HERO SECTION
 ========================================= */
 main {
-  margin-top: 60px; 
+  margin-top: 60px;
 }
 
 .hero {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url('https://img.magnific.com/fotos-gratis/fundo-abstrato-escuro_1048-1920.jpg?semt=ais_hybrid&w=740&q=80');
   background-size: cover;
   background-position: center;
@@ -162,7 +173,7 @@ main {
   font-weight: bold;
   background-color: transparent;
   color: var(--texto-claro);
-  border: 2px solid var(--laranja-destaque); 
+  border: 2px solid var(--laranja-destaque);
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -182,16 +193,18 @@ main {
 
 .section-projetos h2 {
   text-align: center;
-  color: var(--texto-claro, #f3f4f6); 
+  color: var(--texto-claro, #f3f4f6);
   margin-bottom: 2rem;
 }
 
 /* O Container do Carrossel */
 .cards-projetos {
   display: flex;
-  gap: 1.5rem; /* Espaço entre os cards */
-  overflow-x: auto; /* Habilita a rolagem lateral */
-  padding: 1rem 1.5rem 2rem 1.5rem; 
+  gap: 1.5rem;
+  /* Espaço entre os cards */
+  overflow-x: auto;
+  /* Habilita a rolagem lateral */
+  padding: 1rem 1.5rem 2rem 1.5rem;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
 }
@@ -203,14 +216,15 @@ main {
 
 /* Card */
 .card {
-  min-width: 280px; 
+  min-width: 280px;
   max-width: 300px;
-  background-color: var(--bg-secundario, #1f2937); /* Fundo escuro */
+  background-color: var(--bg-secundario, #1f2937);
+  /* Fundo escuro */
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  border: 1px solid #374151; 
-  overflow: hidden; 
-  scroll-snap-align: center; 
+  border: 1px solid #374151;
+  overflow: hidden;
+  scroll-snap-align: center;
 }
 
 .card a {
@@ -248,7 +262,7 @@ main {
   gap: 0.25rem;
   margin-top: 1.5rem;
   padding: 8px 12px;
-  
+
   background-color: var(--azul-tech, #2563EB);
   color: #ffffff;
   font-size: 0.875rem;
@@ -432,7 +446,7 @@ main {
    FOOTER
 ========================================= */
 footer {
-  background-color: #0b0f19; 
+  background-color: #0b0f19;
   border-top: 3px solid var(--laranja-destaque);
   padding: 2rem 1.5rem;
   text-align: center;
@@ -447,4 +461,55 @@ footer p {
 
 footer p:last-child {
   margin-bottom: 0;
+}
+
+
+@media(min-width: 768px) {
+  .cards-projetos {
+    display: flex;
+    justify-content: center;
+
+  }
+
+}
+
+@media(min-width: 1024px) {
+  .cards-projetos {
+    display: flex;
+    justify-content: center;
+  }
+
+  .container-burger {
+    display: flex;
+
+  }
+
+  .burger,
+  #burger-checkbox {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    width: auto;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .nav-links li {
+    list-style: none;
+    border: none;
+  }
+
+  .nav-links a {
+    padding: 10px 15px;
+  }
+
+
+
+
+
+
 }
