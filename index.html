@@ -30,7 +30,6 @@
             <li><a href="#contato">Contato</a></li>
           </ul>
         </div>
-        
       </nav>
     </header>
 
@@ -47,76 +46,126 @@
         </div>
       </section>
 
-      <section class="section-projetos">
+      <section class="section-projetos" id="projetos">
         <h2>Projetos</h2>
 
         <div class="cards-projetos">
           <!-- Card 1 -->
           <div class="card">
             <img
-              src="https://via.placeholder.com/300x150"
+              src="src/capa-projetos/job-scraper.jpg"
               alt="Capa do projeto"
               class="image"
             />
 
             <div class="content">
               <a href="#">
-                <span class="title">Sistema de Gestão Escolar</span>
+                <span class="title">Sistema de busca de vagas de emprego</span>
               </a>
               <p class="desc">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Recusandae dolores, possimus pariatur.
+                Automatiza a busca por vagas de emprego, coletando oportunidades
+                de diferentes plataformas e centralizando-as no Telegram. Reduz
+                o tempo gasto em pesquisas manuais e facilita o acompanhamento
+                de novas vagas.
               </p>
-              <a class="action" href="#">
-                Find out more
-                <span aria-hidden="true">→</span>
-              </a>
+
+              <div class="card-actions">
+                <button
+                  class="action btn-ver-projeto"
+                  type="button"
+                  data-preview="job-scraper"
+                >
+                  Ver projeto
+                  <span aria-hidden="true">→</span>
+                </button>
+                <a
+                  class="action action-secondary"
+                  href="https://github.com/DenisGoes/job-web-scraper"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Código fonte
+                </a>
+              </div>
             </div>
           </div>
 
           <!-- Card 2 -->
           <div class="card">
             <img
-              src="https://via.placeholder.com/300x150"
+              src="src/capa-projetos/sensor-estacionamento.jpg"
               alt="Capa do projeto"
               class="image"
             />
 
             <div class="content">
               <a href="#">
-                <span class="title">API RESTful em Java</span>
+                <span class="title">Sensor de Estacionamento</span>
               </a>
               <p class="desc">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Recusandae dolores, possimus pariatur.
               </p>
-              <a class="action" href="#">
-                Find out more
-                <span aria-hidden="true">→</span>
-              </a>
+
+              <div class="card-actions">
+                <button
+                  class="action btn-ver-projeto"
+                  type="button"
+                  data-preview="sensor-estacionamento"
+                >
+                  Ver projeto
+                  <span aria-hidden="true">→</span>
+                </button>
+                <a
+                  class="action action-secondary"
+                  href="https://github.com/DenisGoes/SmartVagas"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Código fonte
+                </a>
+              </div>
             </div>
           </div>
 
           <!-- Card 3 -->
           <div class="card">
             <img
-              src="https://via.placeholder.com/300x150"
+              src="src/capa-projetos/scraper-noticias.jpg"
               alt="Capa do projeto"
               class="image"
             />
 
             <div class="content">
               <a href="#">
-                <span class="title">Automação com Python</span>
+                <span class="title">NT Scraper</span>
               </a>
               <p class="desc">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Recusandae dolores, possimus pariatur.
+                NT Scraper é um sistema de busca e coleta automatizada de
+                notícias de tecnologia, de diferentes fontes, como hacker news,
+                Tecnoblog e outras fontes. Desenvolvido para pessoas que gostam
+                de tecnologia, leitura e que desejam se manter atualizadas sobre
+                as principais notícias do setor.
               </p>
-              <a class="action" href="#">
-                Find out more
-                <span aria-hidden="true">→</span>
-              </a>
+
+              <div class="card-actions">
+                <button
+                  class="action btn-ver-projeto"
+                  type="button"
+                  data-preview="nt-scraper"
+                >
+                  Ver projeto
+                  <span aria-hidden="true">→</span>
+                </button>
+                <a
+                  class="action action-secondary"
+                  href="https://github.com/DenisGoes/scraping-noticias"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Código fonte
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -140,6 +189,7 @@
         <div class="tecnologias-sobre">
           <img class="tech" src="src/python.svg" alt="Python" />
           <img class="tech" src="src/java.svg" alt="Java" />
+          <img class="tech" src="src/sql.svg" alt="SQL" />
           <img class="tech" src="src/docker.svg" alt="Docker" />
           <img class="tech" src="src/git.svg" alt="Git" />
           <img class="tech" src="src/html.svg" alt="HTML" />
@@ -164,14 +214,14 @@
           <button type="submit" class="btn-contato">Enviar mensagem</button>
 
           <div class="redes-contato">
-            <a href="#" target="_blank">
+            <a href="https://www.linkedin.com/in/denis-goes/" target="_blank">
               <img
                 class="redes-sociais"
                 src="src/redes-sociais/linkedin.svg"
                 alt="LinkedIn"
               />
             </a>
-            <a href="#" target="_blank">
+            <a href="https://github.com/DenisGoes" target="_blank">
               <img
                 class="redes-sociais"
                 src="src/redes-sociais/github.svg"
@@ -183,9 +233,53 @@
       </section>
     </main>
 
+    <!-- Preview do projeto (modal) -->
+    <div class="project-preview" id="projectPreview" aria-hidden="true">
+      <div
+        class="project-preview-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="previewTitle"
+      >
+        <button
+          class="preview-close"
+          id="previewClose"
+          type="button"
+          aria-label="Fechar"
+        >
+          &times;
+        </button>
+
+        <img class="preview-image" id="previewImage" src="" alt="" />
+
+        <div class="preview-gallery" id="previewGallery"></div>
+
+        <div class="preview-body">
+          <h3 id="previewTitle"></h3>
+          <p id="previewDesc"></p>
+
+          <div class="preview-tech" id="previewTech"></div>
+
+          <div class="preview-actions">
+            <a
+              id="previewGithub"
+              class="action"
+              href="#"
+              target="_blank"
+              rel="noopener"
+            >
+              Ver código no GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <footer>
       <p>&copy; 2026 Denis Goes. Todos os direitos reservados.</p>
       <p>Aluno SENAI - São Paulo, SP.</p>
     </footer>
+
+    <script src="src/script/main.js"></script>
   </body>
 </html>

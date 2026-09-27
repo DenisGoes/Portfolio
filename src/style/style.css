@@ -2,27 +2,20 @@
    VARIÁVEIS DE CORES (PALETA)
 ========================================= */
 :root {
-  --bg-principal: #111827;
-  /* Cinza muito escuro */
-  --bg-secundario: #1f2937;
-  /* Cinza médio/escuro */
-  --texto-claro: #f3f4f6;
-  /* Branco suave */
-  --texto-mutado: #9ca3af;
-  /* Cinza para subtítulos */
+  --bg-principal: #111827; /* Cinza muito escuro */
+  --bg-secundario: #1f2937; /* Cinza médio/escuro */
+  --texto-claro: #f3f4f6; /* Branco suave */
+  --texto-mutado: #9ca3af; /* Cinza para subtítulos */
 
-  --azul-tech: #2563eb;
-  /* Azul vibrante */
-  --azul-hover: #1d4ed8;
-  /* Azul escuro (clique) */
-  --laranja-destaque: #f97316;
-  /* Laranja energético */
+  --azul-tech: #2563eb; /* Azul vibrante */
+  --azul-hover: #1d4ed8; /* Azul escuro (clique) */
+  --laranja-destaque: #f97316; /* Laranja energético */
 }
 
-
-/* Rolagem suave ao clicar nos links do menu */
+/* Rolagem suave e compensação do header fixo (60px) */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 60px; /* Impede que o header fixo cubra o topo da seção */
 }
 
 body {
@@ -33,6 +26,20 @@ body {
   font-family: Arial, sans-serif;
 }
 
+/* Trava a rolagem do body quando o preview está aberto */
+body.preview-open {
+  overflow: hidden;
+}
+
+/* Regra global para todas as seções ocuparem a tela cheia */
+section {
+  min-height: calc(100vh - 60px); /* Ocupa a altura inteira da tela descontando o header */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
 /* =========================================
    HEADER e NAVEGAÇÃO
 ========================================= */
@@ -41,9 +48,9 @@ header {
   top: 0;
   left: 0;
   width: 100%;
+  height: 60px;
   background-color: var(--bg-principal);
   border-bottom: 2px solid var(--azul-tech);
-  /* Linha azul de destaque */
   z-index: 1000;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
@@ -53,6 +60,8 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .nav-left p {
@@ -63,7 +72,6 @@ nav {
 
 .destaque-logo {
   color: var(--laranja-destaque);
-  /* Barra '/' laranja */
 }
 
 /* Menu Hambúrguer */
@@ -91,15 +99,15 @@ nav {
   display: none;
 }
 
-#burger-checkbox:checked+.burger span:nth-child(1) {
+#burger-checkbox:checked + .burger span:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
 }
 
-#burger-checkbox:checked+.burger span:nth-child(2) {
+#burger-checkbox:checked + .burger span:nth-child(2) {
   opacity: 0;
 }
 
-#burger-checkbox:checked+.burger span:nth-child(3) {
+#burger-checkbox:checked + .burger span:nth-child(3) {
   transform: translateY(-9px) rotate(-45deg);
 }
 
@@ -116,7 +124,6 @@ nav {
 }
 
 .nav-links li {
-  /* list-style: none; */
   text-align: center;
   border-top: 1px solid #374151;
 }
@@ -130,7 +137,7 @@ nav {
 }
 
 /* Abre o menu quando o checkbox é marcado */
-#burger-checkbox:checked~.nav-links {
+#burger-checkbox:checked ~ .nav-links {
   display: flex;
 }
 
@@ -146,9 +153,6 @@ main {
     url('https://img.magnific.com/fotos-gratis/fundo-abstrato-escuro_1048-1920.jpg?semt=ais_hybrid&w=740&q=80');
   background-size: cover;
   background-position: center;
-  min-height: calc(100vh - 60px);
-  display: flex;
-  justify-content: center;
   align-items: center;
   text-align: center;
   padding: 2rem 1.5rem;
@@ -185,7 +189,7 @@ main {
 }
 
 /* =========================================
-  Projetos
+   PROJETOS
 ========================================= */
 .section-projetos {
   padding: 4rem 0;
@@ -201,9 +205,7 @@ main {
 .cards-projetos {
   display: flex;
   gap: 1.5rem;
-  /* Espaço entre os cards */
   overflow-x: auto;
-  /* Habilita a rolagem lateral */
   padding: 1rem 1.5rem 2rem 1.5rem;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
@@ -219,7 +221,6 @@ main {
   min-width: 280px;
   max-width: 300px;
   background-color: var(--bg-secundario, #1f2937);
-  /* Fundo escuro */
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   border: 1px solid #374151;
@@ -240,6 +241,8 @@ main {
 
 .content {
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .title {
@@ -256,14 +259,25 @@ main {
   line-height: 1.25rem;
 }
 
+/* Linha com os dois botões do card */
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
 .action {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.25rem;
-  margin-top: 1.5rem;
   padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
 
-  background-color: var(--azul-tech, #2563EB);
+  background-color: var(--azul-tech, #2563eb);
   color: #ffffff;
   font-size: 0.875rem;
   font-weight: 500;
@@ -276,11 +290,173 @@ main {
 }
 
 .action span {
-  transition: .3s ease;
+  transition: 0.3s ease;
 }
 
 .action:hover span {
   transform: translateX(4px);
+}
+
+/* Botão secundário (Código fonte) — mesmo tamanho, estilo com contorno */
+.action-secondary {
+  background-color: transparent;
+  color: var(--texto-claro);
+  border: 1px solid #374151;
+}
+
+.action-secondary:hover {
+  background-color: #374151;
+}
+
+/* =========================================
+   PREVIEW DO PROJETO (MODAL)
+========================================= */
+.project-preview {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.75);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  box-sizing: border-box;
+}
+
+.project-preview.is-open {
+  display: flex;
+  opacity: 1;
+}
+
+.project-preview-content {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  max-height: 85vh;
+  overflow-y: auto;
+  background-color: var(--bg-secundario);
+  border: 1px solid #374151;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+  transform: translateY(20px) scale(0.98);
+  opacity: 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.project-preview.is-open .project-preview-content {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.preview-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(17, 24, 39, 0.7);
+  color: var(--texto-claro);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 1;
+  transition: background-color 0.3s ease;
+}
+
+.preview-close:hover {
+  background-color: var(--azul-tech);
+}
+
+.preview-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Galeria de miniaturas do projeto */
+.preview-gallery {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--bg-principal);
+}
+
+.preview-gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.preview-gallery img {
+  width: 72px;
+  height: 54px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.preview-gallery img:hover {
+  opacity: 1;
+}
+
+.preview-gallery img.is-active {
+  opacity: 1;
+  border-color: var(--azul-tech);
+}
+
+.preview-body {
+  padding: 1.5rem;
+}
+
+.preview-body h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+  color: var(--texto-claro);
+}
+
+.preview-body p {
+  color: var(--texto-mutado);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.preview-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.preview-tech span {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background-color: #374151;
+  color: var(--texto-claro);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.preview-actions {
+  display: flex;
+}
+
+.preview-actions .action {
+  width: 100%;
+  text-decoration: none;
+  padding: 10px 12px;
 }
 
 /* =========================================
@@ -289,8 +465,6 @@ main {
 .section-sobre-mim {
   background-color: var(--bg-secundario);
   padding: 4rem 1.5rem;
-  display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
@@ -334,7 +508,7 @@ main {
   flex-wrap: wrap;
   gap: 1.5rem;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
 }
 
 .tecnologias-sobre .tech {
@@ -374,6 +548,7 @@ main {
   flex-direction: column;
   max-width: 500px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .section-contato label {
@@ -463,17 +638,38 @@ footer p:last-child {
   margin-bottom: 0;
 }
 
-
-@media(min-width: 768px) {
-  .cards-projetos {
-    display: flex;
-    justify-content: center;
-
+/* =========================================
+   VERSÃO DESKTOP (Telas acima de 768px)
+========================================= */
+@media (min-width: 768px) {
+  .hero-content,
+  .section-projetos {
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
+  .hero {
+    padding: 6rem 2rem;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+    max-width: 800px;
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+    max-width: 650px;
+  }
+
+  .preview-image {
+    height: 260px;
+  }
 }
 
-@media(min-width: 1024px) {
+@media (min-width: 1024px) {
   .cards-projetos {
     display: flex;
     justify-content: center;
@@ -481,7 +677,6 @@ footer p:last-child {
 
   .container-burger {
     display: flex;
-
   }
 
   .burger,
@@ -506,10 +701,4 @@ footer p:last-child {
   .nav-links a {
     padding: 10px 15px;
   }
-
-
-
-
-
-
 }
