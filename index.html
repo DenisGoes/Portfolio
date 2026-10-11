@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Denis Goes | Desenvolvedor Backend</title>
+    <link rel="icon" type="image/svg+xml" href="src/imagens/favicon.svg" />
     <link rel="stylesheet" href="src/style/normalize.css" />
     <link rel="stylesheet" href="src/style/style.css" />
   </head>
@@ -11,7 +12,9 @@
     <header>
       <nav>
         <div class="nav-left">
-          <p>Denis Goes <span class="destaque-logo">/</span></p>
+          <a class="logo-link" href="#home" aria-label="Denis Goes, ir para Home">
+            <p>Denis Goes <span class="destaque-logo">/</span></p>
+          </a>
         </div>
 
         <div class="container-burger">
@@ -42,7 +45,7 @@
             completos, escaláveis e seguros com Python e Java para sanar
             necessidades do mundo real.
           </p>
-          <button class="btn-hero">Meus Projetos</button>
+          <a class="btn-hero" href="#projetos">Meus Projetos</a>
         </div>
       </section>
 
@@ -53,20 +56,17 @@
           <!-- Card 1 -->
           <div class="card">
             <img
-              src="src/capa-projetos/job-scraper.jpg"
-              alt="Capa do projeto"
+              src="src/imagens/capa-projetos/job-scraper.jpg"
+              alt="Ilustração do sistema de busca de vagas"
               class="image"
             />
 
             <div class="content">
-              <a href="#">
-                <span class="title">Sistema de busca de vagas de emprego</span>
-              </a>
+              <span class="title">Sistema de busca de vagas de emprego</span>
               <p class="desc">
-                Automatiza a busca por vagas de emprego, coletando oportunidades
-                de diferentes plataformas e centralizando-as no Telegram. Reduz
-                o tempo gasto em pesquisas manuais e facilita o acompanhamento
-                de novas vagas.
+                Busca vagas em diferentes plataformas, permite filtrar por
+                palavras-chave e centraliza as oportunidades no Telegram. Inclui
+                API, banco de dados e ferramentas para acompanhar e analisar vagas.
               </p>
 
               <div class="card-actions">
@@ -93,18 +93,17 @@
           <!-- Card 2 -->
           <div class="card">
             <img
-              src="src/capa-projetos/sensor-estacionamento.jpg"
-              alt="Capa do projeto"
+              src="src/imagens/capa-projetos/sensor-estacionamento.jpg"
+              alt="Ilustração do sistema de vagas com ESP32 e sensores ultrassônicos"
               class="image"
             />
 
             <div class="content">
-              <a href="#">
-                <span class="title">Sensor de Estacionamento</span>
-              </a>
+              <span class="title">Sensor de Estacionamento</span>
               <p class="desc">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Recusandae dolores, possimus pariatur.
+                Painel web que recebe em tempo real os dados dos sensores
+                ultrassônicos conectados ao ESP32 e atualiza a ocupação das vagas,
+                mostrando quais estão livres e quais estão ocupadas.
               </p>
 
               <div class="card-actions">
@@ -131,21 +130,17 @@
           <!-- Card 3 -->
           <div class="card">
             <img
-              src="src/capa-projetos/scraper-noticias.jpg"
-              alt="Capa do projeto"
+              src="src/imagens/capa-projetos/scraper-noticias.jpg"
+              alt="Ilustração do sistema de coleta de notícias de tecnologia"
               class="image"
             />
 
             <div class="content">
-              <a href="#">
-                <span class="title">NT Scraper</span>
-              </a>
+              <span class="title">NT Scraper</span>
               <p class="desc">
-                NT Scraper é um sistema de busca e coleta automatizada de
-                notícias de tecnologia, de diferentes fontes, como hacker news,
-                Tecnoblog e outras fontes. Desenvolvido para pessoas que gostam
-                de tecnologia, leitura e que desejam se manter atualizadas sobre
-                as principais notícias do setor.
+                Coleta notícias de tecnologia de fontes como Hacker News e
+                Tecnoblog, armazena e distribui os resultados em um canal do
+                Telegram. A API e o webhook dão suporte à integração com o bot.
               </p>
 
               <div class="card-actions">
@@ -172,11 +167,7 @@
       </section>
 
       <section class="section-sobre-mim" id="sobre">
-        <img
-          class="foto-perfil"
-          src="https://via.placeholder.com/150"
-          alt="Foto de Denis Goes"
-        />
+        <div class="foto-perfil" role="img" aria-label="Iniciais de Denis Goes">DG</div>
 
         <h2>Quem sou eu</h2>
         <p>
@@ -187,13 +178,13 @@
 
         <h3>Tecnologias e Ferramentas</h3>
         <div class="tecnologias-sobre">
-          <img class="tech" src="src/python.svg" alt="Python" />
-          <img class="tech" src="src/java.svg" alt="Java" />
-          <img class="tech" src="src/sql.svg" alt="SQL" />
-          <img class="tech" src="src/docker.svg" alt="Docker" />
-          <img class="tech" src="src/git.svg" alt="Git" />
-          <img class="tech" src="src/html.svg" alt="HTML" />
-          <img class="tech" src="src/css.svg" alt="CSS" />
+          <img class="tech" src="src/imagens/tecnologias/python.svg" alt="Python" />
+          <img class="tech" src="src/imagens/tecnologias/java.svg" alt="Java" />
+          <img class="tech" src="src/imagens/tecnologias/sql.svg" alt="SQL" />
+          <img class="tech" src="src/imagens/tecnologias/docker.svg" alt="Docker" />
+          <img class="tech" src="src/imagens/tecnologias/git.svg" alt="Git" />
+          <img class="tech" src="src/imagens/tecnologias/html.svg" alt="HTML" />
+          <img class="tech" src="src/imagens/tecnologias/css.svg" alt="CSS" />
         </div>
       </section>
 
@@ -201,32 +192,36 @@
         <h2>Contato</h2>
         <p>Vamos trabalhar juntos? Me mande uma mensagem!</p>
 
-        <form action="">
+        <form id="contactForm">
           <label for="nome">Nome</label>
-          <input id="nome" type="text" placeholder="Insira seu nome" />
+          <input id="nome" name="name" type="text" placeholder="Insira seu nome" required />
 
           <label for="email">Email</label>
-          <input id="email" type="email" placeholder="Insira seu email" />
+          <input id="email" name="email" type="email" placeholder="Insira seu email" required />
 
           <label for="mensagem">Mensagem</label>
-          <textarea id="mensagem" placeholder="Sua mensagem"></textarea>
+          <textarea id="mensagem" name="message" placeholder="Sua mensagem" required></textarea>
 
           <button type="submit" class="btn-contato">Enviar mensagem</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
 
           <div class="redes-contato">
-            <a href="https://www.linkedin.com/in/denis-goes/" target="_blank">
+            <a href="https://www.linkedin.com/in/denis-goes/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Denis Goes">
               <img
                 class="redes-sociais"
-                src="src/redes-sociais/linkedin.svg"
+                src="src/imagens/redes-sociais/linkedin.svg"
                 alt="LinkedIn"
               />
             </a>
-            <a href="https://github.com/DenisGoes" target="_blank">
+            <a href="https://github.com/DenisGoes" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Denis Goes">
               <img
                 class="redes-sociais"
-                src="src/redes-sociais/github.svg"
+                src="src/imagens/redes-sociais/github.svg"
                 alt="GitHub"
               />
+            </a>
+            <a class="email-contato" href="mailto:d.goesdev@gmail.com" aria-label="Enviar email para d.goesdev@gmail.com">
+              <img class="redes-sociais" src="src/imagens/redes-sociais/email.svg" alt="" />
             </a>
           </div>
         </form>

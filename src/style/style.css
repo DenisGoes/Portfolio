@@ -70,6 +70,16 @@ nav {
   font-size: 1.2rem;
 }
 
+.logo-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.logo-link:hover,
+.logo-link:focus-visible {
+  color: var(--laranja-destaque);
+}
+
 .destaque-logo {
   color: var(--laranja-destaque);
 }
@@ -134,6 +144,12 @@ nav {
   text-decoration: none;
   color: var(--texto-claro);
   font-weight: bold;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--laranja-destaque);
 }
 
 /* Abre o menu quando o checkbox é marcado */
@@ -164,6 +180,10 @@ main {
   line-height: 1.2;
 }
 
+.hero-content {
+  width: 100%;
+}
+
 .hero-content p {
   font-size: 1rem;
   color: var(--texto-mutado);
@@ -172,6 +192,9 @@ main {
 }
 
 .btn-hero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 12px 25px;
   font-size: 1rem;
   font-weight: bold;
@@ -180,10 +203,12 @@ main {
   border: 2px solid var(--laranja-destaque);
   border-radius: 5px;
   cursor: pointer;
+  text-decoration: none;
   transition: all 0.3s ease;
 }
 
-.btn-hero:active {
+.btn-hero:hover,
+.btn-hero:focus-visible {
   background-color: var(--laranja-destaque);
   color: var(--bg-principal);
 }
@@ -234,8 +259,10 @@ main {
 
 .image {
   width: 100%;
-  height: 150px;
+  aspect-ratio: 16 / 9;
+  height: auto;
   object-fit: cover;
+  object-position: center;
   display: block;
 }
 
@@ -377,8 +404,10 @@ main {
 
 .preview-image {
   width: 100%;
-  height: 200px;
+  aspect-ratio: 16 / 9;
+  height: auto;
   object-fit: cover;
+  object-position: center;
   display: block;
 }
 
@@ -475,6 +504,12 @@ main {
   object-fit: cover;
   border: 3px solid var(--laranja-destaque);
   margin-bottom: 1.5rem;
+  display: grid;
+  place-items: center;
+  background: var(--bg-principal);
+  color: var(--texto-claro);
+  font-size: 2.5rem;
+  font-weight: 700;
 }
 
 .section-sobre-mim h2 {
@@ -518,7 +553,7 @@ main {
   transition: transform 0.3s ease;
 }
 
-.tecnologias-sobre .tech:active {
+.tecnologias-sobre .tech:hover {
   transform: scale(1.1);
 }
 
@@ -595,8 +630,28 @@ main {
   transition: background-color 0.3s ease;
 }
 
-.btn-contato:active {
+.btn-contato:hover,
+.btn-contato:focus-visible {
   background-color: var(--azul-hover);
+}
+
+.btn-contato:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.section-contato .form-status {
+  min-height: 1.5rem;
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+}
+
+.form-status.is-success {
+  color: #86efac;
+}
+
+.form-status.is-error {
+  color: #fca5a5;
 }
 
 .redes-contato {
@@ -613,7 +668,8 @@ main {
   transition: transform 0.3s ease;
 }
 
-.redes-contato a:active .redes-sociais {
+.redes-contato a:hover .redes-sociais,
+.redes-contato a:focus-visible .redes-sociais {
   transform: scale(1.1);
 }
 
@@ -642,8 +698,7 @@ footer p:last-child {
    VERSÃO DESKTOP (Telas acima de 768px)
 ========================================= */
 @media (min-width: 768px) {
-  .hero-content,
-  .section-projetos {
+  .hero-content {
     max-width: 1200px;
     margin: 0 auto;
   }
@@ -655,8 +710,8 @@ footer p:last-child {
   }
 
   .hero-content h1 {
-    font-size: 3rem;
-    max-width: 800px;
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    max-width: 850px;
   }
 
   .hero-content p {
@@ -664,17 +719,38 @@ footer p:last-child {
     max-width: 650px;
   }
 
-  .preview-image {
-    height: 260px;
+  .section-projetos {
+    padding: 5rem 2rem;
   }
+
+  .cards-projetos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    width: min(100%, 1200px);
+    margin: 0 auto;
+    padding: 1rem 0 2rem;
+    overflow: visible;
+  }
+
+  .card {
+    min-width: 0;
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card .content {
+    flex: 1;
+  }
+
+  .section-contato form {
+    max-width: 640px;
+  }
+
 }
 
 @media (min-width: 1024px) {
-  .cards-projetos {
-    display: flex;
-    justify-content: center;
-  }
-
   .container-burger {
     display: flex;
   }
@@ -700,5 +776,20 @@ footer p:last-child {
 
   .nav-links a {
     padding: 10px 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  nav {
+    max-width: 1264px;
+    margin: 0 auto;
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    min-height: calc(100vh - 60px);
   }
 }

@@ -7,36 +7,31 @@ const projectsData = {
     // caminhos de todas as imagens/screenshots do projeto.
     // A primeira da lista aparece como imagem principal do preview.
     images: [
-      "src/capa-projetos/job-scraper.jpg",
-      "src/capa-projetos/job-scraper-2.jpg",
-      "src/capa-projetos/job-scraper-3.jpg",
+      "src/imagens/capa-projetos/job-scraper.jpg",
     ],
     description:
-      "Automatiza a busca por vagas de emprego, coletando oportunidades de diferentes plataformas (como LinkedIn e Indeed) e centralizando tudo em um bot do Telegram. O sistema roda em intervalos programados, filtra vagas repetidas e envia apenas as novas oportunidades, reduzindo bastante o tempo gasto em pesquisas manuais.",
-    tech: ["Python", "Telegram Bot API", "Web Scraping", "PostgreSQL", "HTML5", "CSS3", "JavaScript", "API IA", "Docker"],
+      "Automatiza a busca de vagas em diferentes fontes, permite filtrar oportunidades por palavras-chave e reúne os resultados em um canal do Telegram. Conta com API REST, persistência em banco de dados, acompanhamento das vagas pelo Telegram, análise com Gemini e geração de currículo personalizado em DOCX.",
+    tech: ["Python", "FastAPI", "Playwright", "PostgreSQL", "SQLAlchemy", "Telegram Bot API", "GitHub Actions"],
     github: "https://github.com/DenisGoes/job-web-scraper",
   },
   "sensor-estacionamento": {
     title: "Sensor de Estacionamento",
     images: [
-      "src/capa-projetos/sensor-estacionamento.jpg",
-      "src/capa-projetos/sensor-estacionamento-2.jpg",
+      "src/imagens/capa-projetos/sensor-estacionamento.jpg",
     ],
     description:
-      "Projeto de sensor de estacionamento com leitura de distância em tempo real, indicando via LED/display se a vaga está livre ou ocupada. Pensado para ambientes com poucas vagas onde a sinalização visual ajuda o motorista a estacionar com mais segurança.",
-    tech: ["C++", "ESP32", "Sensores Ultrassônico HC-SR04", "HTML5", "CSS3", "JavaScript"],
+      "Painel web em HTML, CSS e JavaScript que recebe em tempo real as leituras dos sensores ultrassônicos conectados ao ESP32. Os dados atualizam a interface para indicar quais vagas estão livres e quais estão ocupadas.",
+    tech: ["HTML5", "CSS3", "JavaScript", "ESP32", "Sensores ultrassônicos"],
     github: "https://github.com/DenisGoes/SmartVagas",
   },
   "nt-scraper": {
     title: "NT Scraper",
     images: [
-      "src/capa-projetos/scraper-noticias.jpg",
-      "src/capa-projetos/scraper-noticias-2.jpg",
-      "src/capa-projetos/scraper-noticias-3.jpg",
+      "src/imagens/capa-projetos/scraper-noticias.jpg",
     ],
     description:
-      "NT Scraper é um sistema de busca e coleta automatizada de notícias de tecnologia, reunindo conteúdo de diferentes fontes, como Hacker News, Tecnoblog e outros portais. Desenvolvido para pessoas que gostam de tecnologia e querem se manter atualizadas sobre as principais notícias do setor sem precisar visitar vários sites separadamente.",
-    tech: ["Python", "Telegram Bot API", "Web Scraping", "PostgreSQL", "HTML5", "CSS3", "JavaScript", "API IA", "Docker"],
+      "Sistema que busca, extrai e armazena notícias de tecnologia de fontes como Hacker News e Tecnoblog, distribuindo-as em um canal do Telegram. Possui API e webhook para integração com o bot, além de execução automatizada diária.",
+    tech: ["Python", "FastAPI", "Playwright", "PostgreSQL", "SQLAlchemy", "Telegram Bot API", "GitHub Actions", "Docker"],
     github: "https://github.com/DenisGoes/scraping-noticias",
   },
 };
@@ -45,6 +40,60 @@ const projectsData = {
 // PREVIEW DO PROJETO (abrir / fechar)
 // =========================================
 document.addEventListener("DOMContentLoaded", () => {
+  const burgerCheckbox = document.getElementById("burger-checkbox");
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (burgerCheckbox) burgerCheckbox.checked = false;
+    });
+  });
+
+  const contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const formData = new FormData(contactForm);
+      const submitButton = contactForm.querySelector('[type="submit"]');
+      const formStatus = document.getElementById("formStatus");
+      const payload = {
+        name: formData.get("name"),
+        email: formData.get("email"),
+        _replyto: formData.get("email"),
+        message: formData.get("message"),
+        _subject: `Contato pelo portfólio: ${formData.get("name")}`,
+      };
+
+      submitButton.disabled = true;
+      formStatus.textContent = "Enviando mensagem…";
+      formStatus.classList.remove("is-error", "is-success");
+
+      fetch("https://formsubmit.co/ajax/d.goesdev@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      })
+        .then(async (response) => {
+          const result = await response.json();
+          if (!response.ok || result.success === false) {
+            throw new Error(result.message || "Não foi possível enviar a mensagem.");
+          }
+          contactForm.reset();
+          formStatus.textContent = "Mensagem enviada! Obrigado pelo contato.";
+          formStatus.classList.add("is-success");
+        })
+        .catch(() => {
+          formStatus.textContent =
+            "Não foi possível enviar agora. Tente novamente em instantes.";
+          formStatus.classList.add("is-error");
+        })
+        .finally(() => {
+          submitButton.disabled = false;
+        });
+    });
+  }
+
   const preview = document.getElementById("projectPreview");
   const previewImage = document.getElementById("previewImage");
   const previewGallery = document.getElementById("previewGallery");
